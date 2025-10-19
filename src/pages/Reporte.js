@@ -6,14 +6,25 @@ const Reporte = () => {
   const [registros, setRegistros] = useState([]);
   const navigate = useNavigate();
 
+  // URL dinámica para producción o desarrollo
+  const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:3001';
+
   const obtenerDatos = async () => {
-    const res = await axios.get('http://localhost:3001/api/reportes');
-    setRegistros(res.data);
+    try {
+      const res = await axios.get(`${API_URL}/api/reportes`);
+      setRegistros(res.data);
+    } catch (error) {
+      console.error('Error al obtener reportes:', error);
+    }
   };
 
   const eliminarTodo = async () => {
-    await axios.delete('http://localhost:3001/api/reportes');
-    setRegistros([]);
+    try {
+      await axios.delete(`${API_URL}/api/reportes`);
+      setRegistros([]);
+    } catch (error) {
+      console.error('Error al eliminar reportes:', error);
+    }
   };
 
   useEffect(() => {
@@ -23,11 +34,11 @@ const Reporte = () => {
   return (
     <div className="container">
       <div className="reporte-header">
-        <br/>
+        <br />
         <div className="logo-fijo">
           <img src="/logo.png" alt="Logo Empresa" className="logo-independiente" />
         </div>
-        <br></br>
+        <br />
         <div className="fecha-titulo">
           <p className="fecha-derecha"><strong>Fecha:</strong> {new Date().toLocaleDateString()}</p>
           <h2 className="titulo-central">ACTIVIDADES DIARIAS DE VEHÍCULOS</h2>
