@@ -1,0 +1,255 @@
+/* Fondo general con imagen y transparencia */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-image: url('./imagenes/turbina.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Contenedor principal con transparencia para ambas páginas */
+.container {
+  background-color: rgba(255, 255, 255, 0.90);
+  width: 100vw;
+  max-width: 1250px;
+  border-radius: 20px;
+  padding: 3vw 3vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Página del formulario con márgenes amplios y centrado */
+.formulario-ajustada {
+  width: 100%;
+  min-height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2vh 2vw;
+  box-sizing: border-box;
+}
+
+/* Tarjeta del formulario con transparencia y sin borde */
+.formulario-card {
+  background-color: rgba(245, 245, 245, 0.6);
+  padding: 4vh 4vw;
+  min-height: 10vh ;
+  border-radius: 0px;
+  box-shadow: none;
+  width: 100%;
+  max-width: 450px;
+}
+
+/* Título del formulario */
+.formulario-titu{
+  margin-top: 50px;
+  text-align: center;
+  font-size: 3vh;
+  margin-bottom: 3vh;
+  color: #0c0202;
+}
+
+
+/* Grupo de campos en dos columnas */
+.form-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2.5vh;
+}
+
+label {
+  flex: 1;
+  margin-right: 2vw;
+  font-weight: bold;
+  font-size: 2vh;
+  color: #333;
+  text-align: left;
+}
+
+input {
+  flex: 2;
+  height: 4.5vh;
+  font-size: 1.8vh;
+  padding: 0.5vh 1vw;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+/* Tabla */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 3vh;
+}
+
+th, td {
+  border: 1px solid #aaa;
+  padding: 1vh 1vw;
+  text-align: center;
+  font-size: 1.8vh;
+}
+
+th {
+  background-color: #eee;
+  font-weight: bold;
+}
+
+/* Botones alineados horizontalmente */
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 2vw;
+  margin-top: 4vh;
+}
+
+button {
+  height: 5vh;
+  font-size: 2vh;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button.purple {
+  background-color: #7e57c2;
+  color: white;
+  width: 48%;
+}
+button.purple:hover {
+  background-color: #9575cd;
+}
+
+button.orange {
+  background-color: #fb8c00;
+  color: white;
+  width: 220px;
+}
+button.orange:hover {
+  background-color: #ffa726;
+}
+
+button.green {
+  background-color: #43a047;
+  color: white;
+  width: 220px;
+}
+button.green:hover {
+  background-color: #66bb6a;
+}
+
+/* Encabezado del reporte con logo a la izquierda y fecha a la derecha */
+.reporte-header {
+  width: 100%;
+  position: relative;
+  margin-bottom: 2vh;
+}
+
+.logo-fijo {
+  position: absolute;
+  top: 0;
+  left: -20px;
+  padding: 1vh;
+}
+
+.logo-independiente {
+  width: 160px;
+  height: 180px;
+  object-fit: contain;
+}
+
+.fecha-titulo {
+  margin-left: 180px;
+  text-align: right;
+}
+
+.fecha-derecha {
+  font-size: 3vh;
+  margin-bottom: 1vh;
+}
+
+.titulo-central {
+  width: 80%;
+  text-align: center;
+  font-size: 2.5vh;
+  margin-bottom: 2vh;
+  color: #0a0000;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .container {
+    width: 95vw;
+    padding: 2vh 2vw;
+  }
+
+  input, select, button {
+    font-size: 2vh;
+  }
+
+  h2 {
+    font-size: 2.2vh;
+  }
+
+  table, th, td {
+    font-size: 1.6vh;
+  }
+
+  .button-group {
+    flex-direction: column;
+    align-items: center;
+    gap: 2vh;
+  }
+
+  button {
+    width: 100%;
+  }
+
+  .formulario-ajustada {
+    padding: 4vh 4vw;
+  }
+
+  .formulario-card {
+    max-width: 90vw;
+    padding: 3vh 3vw;
+  }
+
+  .form-group {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  label {
+    margin-bottom: 1vh;
+    text-align: left;
+  }
+
+  input {
+    width: 100%;
+  }
+
+  .logo-independiente {
+    width: 120px;
+    height: 120px;
+  }
+
+  .fecha-titulo {
+    margin-left: 140px;
+  }
+
+  .fecha-derecha {
+    font-size: 1.8vh;
+    margin-right: 1vw;
+
+  }
+}
