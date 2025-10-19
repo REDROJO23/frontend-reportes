@@ -50,10 +50,10 @@ const Formulario = () => {
         entrada: '',
         observaciones: ''
       });
-      alert('Registro guardado correctamente');
+      alert('✅ Registro guardado correctamente');
     } catch (error) {
       console.error('Error al registrar:', error);
-      alert('Error al registrar. Verifica la conexión con el backend.');
+      alert('❌ Error al registrar. Verifica la conexión con el backend.');
     }
   };
 
