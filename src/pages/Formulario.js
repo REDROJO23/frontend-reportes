@@ -23,6 +23,7 @@ const Formulario = () => {
   });
 
   const refs = useRef([]);
+  const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:3001';
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -38,24 +39,29 @@ const Formulario = () => {
   };
 
   const handleSubmit = async () => {
-    await axios.post('http://localhost:3001/api/reportes', form);
-    setForm({
-      unidad: '',
-      no_ecom: '',
-      usuario: '',
-      destino: '',
-      salida: '',
-      entrada: '',
-      observaciones: ''
-    });
+    try {
+      await axios.post(`${API_URL}/api/reportes`, form);
+      setForm({
+        unidad: '',
+        no_ecom: '',
+        usuario: '',
+        destino: '',
+        salida: '',
+        entrada: '',
+        observaciones: ''
+      });
+      alert('Registro guardado correctamente');
+    } catch (error) {
+      console.error('Error al registrar:', error);
+      alert('Error al registrar. Verifica la conexión con el backend.');
+    }
   };
 
   return (
     <div className="container formulario-ajustada">
-      {/* Formulario compacto y centrado */}
       <div className="formulario-card">
-        <h2 className="formulario-titu">Registro de actividades diarias de vehículos</h2> {/* Título agregado */}
-        <br></br>
+        <h2 className="formulario-titu">Registro de actividades diarias de vehículos</h2>
+        <br />
         {Object.keys(form).map((campo, index) => (
           <div key={campo} className="form-group">
             <label>{campo.toUpperCase()}</label>
@@ -96,4 +102,4 @@ const Formulario = () => {
   );
 };
 
-export default Formulario
+export default Formulario;
